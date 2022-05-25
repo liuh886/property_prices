@@ -34,23 +34,7 @@ class PropertiesSpiderMiddleware(object):
         # Must return an iterable of Request, dict or Item objects.
 
         for item in result:
-            try:
-                if len(item['size']) == 2 and len(item['price']) == 2:
-                    for i in range(len(item['size'])):
-                        yield {
-                            'size': item['size'][i],
-                            'price': item['price'][i],
-                            'location': item['location']
-                        }
-                else:
-                    yield {
-                        'size': item['size'][0],
-                        'price': item['price'][0],
-                        'location': item['location']
-                    }
-
-            except TypeError:
-                yield item
+            yield item
 
     def process_spider_exception(self, response, exception, spider):
         # Called when a spider or process_spider_input() method

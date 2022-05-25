@@ -119,7 +119,7 @@ if __name__ == "__main__":
     with open(JSON_FILE, "w") as f:
         f.write("")
 
-    # Run properties spider
+    # Run properties spider and feed it to JSON_FILE
     settings = get_project_settings()
     settings['FEED_FORMAT'] = "json"
     settings['FEED_URI'] = JSON_FILE
